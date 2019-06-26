@@ -18,6 +18,8 @@ public class BlogTag {
 	@Id
 	@GeneratedValue
 	private Long id;
+	
+	protected BlogTag() {}
 
 	public BlogTag(String name) {
 		this.name = name;
