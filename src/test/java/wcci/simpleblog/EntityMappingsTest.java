@@ -34,6 +34,7 @@ public class EntityMappingsTest {
 		Author author = new Author("Andrew", "Zhang");
 		entityManager.persist(author);
 		entityManager.flush();
+		entityManager.clear();
 		Author foundAuthor = authorRepo.findById(author.getId()).get();
 		assertThat(foundAuthor.getFirstName(), is("Andrew"));
 	}
@@ -43,6 +44,7 @@ public class EntityMappingsTest {
 		Category category = new Category("category");
 		entityManager.persist(category);
 		entityManager.flush();
+		entityManager.clear();
 		Category foundCategory = categoryRepo.findById(category.getId()).get();
 		assertThat(foundCategory.getName(), is("category"));
 	}
@@ -52,6 +54,7 @@ public class EntityMappingsTest {
 		BlogTag blogTag = new BlogTag("food");
 		entityManager.persist(blogTag);
 		entityManager.flush();
+		entityManager.clear();
 		BlogTag foundBlogTag = blogTagRepo.findById(blogTag.getId()).get();
 		assertThat(foundBlogTag.getName(), is("food"));
 	}
@@ -67,6 +70,7 @@ public class EntityMappingsTest {
 		Post post = new Post("title", author, category, "content", blogTag);
 		entityManager.persist(post);
 		entityManager.flush();
+		entityManager.clear();
 		Post foundPost = postRepo.findById(post.getId()).get();
 		assertThat(foundPost.getTitle(), is("title"));
 	}

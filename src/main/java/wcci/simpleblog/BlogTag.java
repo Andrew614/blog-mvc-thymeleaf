@@ -18,8 +18,9 @@ public class BlogTag {
 	@Id
 	@GeneratedValue
 	private Long id;
-	
-	protected BlogTag() {}
+
+	protected BlogTag() {
+	}
 
 	public BlogTag(String name) {
 		this.name = name;
@@ -42,6 +43,8 @@ public class BlogTag {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((posts == null) ? 0 : posts.hashCode());
 		return result;
 	}
 
@@ -58,6 +61,16 @@ public class BlogTag {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (posts == null) {
+			if (other.posts != null)
+				return false;
+		} else if (!posts.equals(other.posts))
 			return false;
 		return true;
 	}
