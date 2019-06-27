@@ -7,6 +7,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Optional;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -39,7 +40,7 @@ public class AuthorControllerTest {
 
 	@Test
 	public void shouldBeAbleToGetAllAuthors() {
-		String authors = underTest.findAll(model);
+		String authors = underTest.getAllAuthors(model);
 		assertThat(authors, is("authorsTemplate"));
 	}
 
@@ -47,8 +48,24 @@ public class AuthorControllerTest {
 	public void shouldAddAuthorsToModel() {
 		Collection<Author> authors = Arrays.asList(author1, author2);
 		when(authorRepo.findAll()).thenReturn(authors);
-		underTest.findAll(model);
+		underTest.getAllAuthors(model);
 		verify(model).addAttribute("authorsAttribute", authors);
+	}
+	
+	@Test
+	public void shouldBeAbleToGetOneAuthor() {
+		Optional<Author> OptAuthor1 = Optional.of(author1);
+		when(authorRepo.findById(0L)).thenReturn(OptAuthor1);
+		String category = underTest.getAuthor(model, 0L);
+		assertThat(category, is("authorTemplate"));
+	}
+	
+	@Test
+	public void shouldAddAuthorToModel() {
+		Optional<Author> OptAuthor1 = Optional.of(author1);
+		when(authorRepo.findById(0L)).thenReturn(OptAuthor1);
+		underTest.getAuthor(model, 0L);
+		verify(model).addAttribute("authorAttribute", author1);
 	}
 
 }
