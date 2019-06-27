@@ -1,6 +1,6 @@
 package wcci.simpleblog;
 
-import java.util.List;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,9 +18,10 @@ public class Author {
 	private Long id;
 
 	@OneToMany(mappedBy = "author")
-	private List<Post> posts;
-	
-	protected Author() {}
+	private Collection<Post> posts;
+
+	protected Author() {
+	}
 
 	public Author(String firstName, String lastName) {
 		this.firstName = firstName;
@@ -39,7 +40,7 @@ public class Author {
 		return lastName;
 	}
 
-	public List<Post> getPosts() {
+	public Collection<Post> getPosts() {
 		return posts;
 	}
 
@@ -47,7 +48,10 @@ public class Author {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((posts == null) ? 0 : posts.hashCode());
 		return result;
 	}
 
@@ -60,10 +64,25 @@ public class Author {
 		if (getClass() != obj.getClass())
 			return false;
 		Author other = (Author) obj;
+		if (firstName == null) {
+			if (other.firstName != null)
+				return false;
+		} else if (!firstName.equals(other.firstName))
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
+			return false;
+		if (lastName == null) {
+			if (other.lastName != null)
+				return false;
+		} else if (!lastName.equals(other.lastName))
+			return false;
+		if (posts == null) {
+			if (other.posts != null)
+				return false;
+		} else if (!posts.equals(other.posts))
 			return false;
 		return true;
 	}

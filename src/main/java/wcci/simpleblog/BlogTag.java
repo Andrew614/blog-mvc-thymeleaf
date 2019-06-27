@@ -1,6 +1,6 @@
 package wcci.simpleblog;
 
-import java.util.List;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,13 +13,14 @@ public class BlogTag {
 	private String name;
 
 	@ManyToMany(mappedBy = "blogTags")
-	private List<Post> posts;
+	private Collection<Post> posts;
 
 	@Id
 	@GeneratedValue
 	private Long id;
-	
-	protected BlogTag() {}
+
+	protected BlogTag() {
+	}
 
 	public BlogTag(String name) {
 		this.name = name;
@@ -33,7 +34,7 @@ public class BlogTag {
 		return name;
 	}
 
-	public List<Post> getPosts() {
+	public Collection<Post> getPosts() {
 		return posts;
 	}
 
@@ -42,6 +43,8 @@ public class BlogTag {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((posts == null) ? 0 : posts.hashCode());
 		return result;
 	}
 
@@ -58,6 +61,16 @@ public class BlogTag {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (posts == null) {
+			if (other.posts != null)
+				return false;
+		} else if (!posts.equals(other.posts))
 			return false;
 		return true;
 	}
