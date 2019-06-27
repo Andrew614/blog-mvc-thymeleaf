@@ -1,6 +1,6 @@
 package wcci.simpleblog;
 
-import java.util.List;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +18,7 @@ public class Author {
 	private Long id;
 
 	@OneToMany(mappedBy = "author")
-	private List<Post> posts;
+	private Collection<Post> posts;
 
 	protected Author() {
 	}
@@ -40,7 +40,7 @@ public class Author {
 		return lastName;
 	}
 
-	public List<Post> getPosts() {
+	public Collection<Post> getPosts() {
 		return posts;
 	}
 

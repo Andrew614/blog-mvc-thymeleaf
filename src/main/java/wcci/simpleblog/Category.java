@@ -1,6 +1,6 @@
 package wcci.simpleblog;
 
-import java.util.List;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +13,7 @@ public class Category {
 	private String name;
 
 	@OneToMany(mappedBy = "category")
-	private List<Post> posts;
+	private Collection<Post> posts;
 
 	@Id
 	@GeneratedValue
@@ -34,7 +34,7 @@ public class Category {
 		return name;
 	}
 
-	public List<Post> getPosts() {
+	public Collection<Post> getPosts() {
 		return posts;
 	}
 

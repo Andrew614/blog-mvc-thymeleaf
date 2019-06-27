@@ -1,13 +1,14 @@
 package wcci.simpleblog;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+
 
 @Entity
 public class Post {
@@ -22,7 +23,7 @@ public class Post {
 	private Category category;
 
 	@ManyToMany
-	private List<BlogTag> blogTags;
+	private Collection<BlogTag> blogTags;
 
 	@Id
 	@GeneratedValue
@@ -31,15 +32,16 @@ public class Post {
 	protected Post() {
 	}
 
-	public Post(String title, Author author, Category category, String content, BlogTag... blogTags) {
+	public Post(String title, Author author, Category category, String content, BlogTag...blogTags) {
 		this.title = title;
 		this.author = author;
 		this.category = category;
 		this.content = content;
-		this.blogTags = new ArrayList<BlogTag>();
-		for (BlogTag blogTag : blogTags) {
-			this.blogTags.add(blogTag);
-		}
+		this.blogTags = Arrays.asList(blogTags);
+//		this.blogTags = new ArrayList<BlogTag>();
+//		for (BlogTag blogTag : blogTags) {
+//			this.blogTags.add(blogTag);
+//		}
 	}
 
 	public Long getId() {
@@ -62,7 +64,7 @@ public class Post {
 		return content;
 	}
 
-	public List<BlogTag> getBlogTag() {
+	public Collection<BlogTag> getBlogTag() {
 		return blogTags;
 	}
 

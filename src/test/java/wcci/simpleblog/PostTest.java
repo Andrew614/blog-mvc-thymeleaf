@@ -5,7 +5,7 @@ import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -39,7 +39,7 @@ public class PostTest {
 	
 	@Test
 	public void postShouldHaveABlogTag() {
-		List<BlogTag> expectedBlogTag = post.getBlogTag();
+		Collection<BlogTag> expectedBlogTag = post.getBlogTag();
 		assertThat(expectedBlogTag, hasItem(blogTag));
 	}
 	
@@ -48,7 +48,7 @@ public class PostTest {
 		BlogTag blogTag2 = new BlogTag("heatlh");
 		BlogTag blogTag3 = new BlogTag("fitness");
 		Post post2 = new Post("title", author, category, "content", blogTag, blogTag2, blogTag3);
-		List<BlogTag> expectedBlogTag = post2.getBlogTag();
+		Collection<BlogTag> expectedBlogTag = post2.getBlogTag();
 		assertThat(expectedBlogTag, containsInAnyOrder(blogTag, blogTag2, blogTag3));
 	}
 }

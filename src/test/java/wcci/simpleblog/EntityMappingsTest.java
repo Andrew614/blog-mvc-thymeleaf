@@ -31,8 +31,8 @@ public class EntityMappingsTest {
 
 	@Test
 	public void shouldSaveAndLoadAuthor() {
-		Author author = new Author("Andrew", "Zhang");
-		entityManager.persist(author);
+		Author author = new Author("Andrew", "Z");
+		authorRepo.save(author);
 		entityManager.flush();
 		entityManager.clear();
 		Author foundAuthor = authorRepo.findById(author.getId()).get();
@@ -42,7 +42,7 @@ public class EntityMappingsTest {
 	@Test
 	public void shouldSaveAndLoadCategory() {
 		Category category = new Category("category");
-		entityManager.persist(category);
+		categoryRepo.save(category);
 		entityManager.flush();
 		entityManager.clear();
 		Category foundCategory = categoryRepo.findById(category.getId()).get();
@@ -52,7 +52,7 @@ public class EntityMappingsTest {
 	@Test
 	public void shouldSaveAndLoadBlogTags() {
 		BlogTag blogTag = new BlogTag("food");
-		entityManager.persist(blogTag);
+		blogTagRepo.save(blogTag);
 		entityManager.flush();
 		entityManager.clear();
 		BlogTag foundBlogTag = blogTagRepo.findById(blogTag.getId()).get();
@@ -61,12 +61,12 @@ public class EntityMappingsTest {
 
 	@Test
 	public void shouldSaveAndLoadPost() {
-		Author author = new Author("Andrew", "Zhang");
-		entityManager.persist(author);
+		Author author = new Author("Andrew", "Z");
+		authorRepo.save(author);
 		Category category = new Category("category");
-		entityManager.persist(category);
+		categoryRepo.save(category);
 		BlogTag blogTag = new BlogTag("fruits");
-		entityManager.persist(blogTag);
+		blogTagRepo.save(blogTag);
 		Post post = new Post("title", author, category, "content", blogTag);
 		entityManager.persist(post);
 		entityManager.flush();
