@@ -31,7 +31,7 @@ public class EntityMappingsTest {
 
 	@Test
 	public void shouldSaveAndLoadAuthor() {
-		Author author = new Author("Andrew", "Z");
+		Author author = new Author("Andrew", "A");
 		authorRepo.save(author);
 		entityManager.flush();
 		entityManager.clear();
@@ -61,7 +61,7 @@ public class EntityMappingsTest {
 
 	@Test
 	public void shouldSaveAndLoadPost() {
-		Author author = new Author("Andrew", "Z");
+		Author author = new Author("Andrew", "A");
 		authorRepo.save(author);
 		Category category = new Category("category");
 		categoryRepo.save(category);
