@@ -42,7 +42,7 @@ public class EntityMappingsTest {
 
 	@Before
 	public void setup() {
-		author = new Author("Andrew", "A");
+		author = new Author("Andrew A");
 		authorRepo.save(author);
 		category = new Category("category");
 		categoryRepo.save(category);
@@ -64,10 +64,10 @@ public class EntityMappingsTest {
 
 	@Test
 	public void shouldSaveAndLoadAuthor() {
-		Author author = new Author("Andrew", "A");
+		Author author = new Author("Andrew A");
 		authorRepo.save(author);
 		Author foundAuthor = authorRepo.findById(author.getId()).get();
-		assertThat(foundAuthor.getFirstName(), is("Andrew"));
+		assertThat(foundAuthor.getName(), is("Andrew A"));
 	}
 
 	@Test

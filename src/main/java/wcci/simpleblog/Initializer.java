@@ -21,12 +21,14 @@ public class Initializer implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception {
-		Author author1 = new Author("Andrew", "A");
-		Author author2 = new Author("Jessica", "Jones");
-		Author author3 = new Author("Luke", "Cage");
+		Author author1 = new Author("Andrew A");
+		Author author2 = new Author("Jessica Jones");
+		Author author3 = new Author("Luke Cage");
+		Author author4 = new Author("Deadpool");
 		authorRepo.save(author1);
 		authorRepo.save(author2);
 		authorRepo.save(author3);
+		authorRepo.save(author4);
 		
 		BlogTag blogTag1 = new BlogTag("tag1");
 		BlogTag blogTag2 = new BlogTag("tag2");
@@ -45,9 +47,11 @@ public class Initializer implements CommandLineRunner {
 		Post post1 = new Post("title1", author1, category1, "content1", blogTag1);
 		Post post2 = new Post("title2", author1, category2, "content2", blogTag1);
 		Post post3 = new Post("title3", author3, category2, "content3", blogTag3);
+		Post post4 = new Post("title3", author4, category3, "content3", blogTag3);
 		postRepo.save(post1);
 		postRepo.save(post2);
 		postRepo.save(post3);
+		postRepo.save(post4);
 	}
 
 }

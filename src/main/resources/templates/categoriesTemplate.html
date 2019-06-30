@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Categories</title>
+    <title>Categories View</title>
 </head>
 
 <body>
     <form action="/categories/add" method="POST">
         <label>Category:
             <input type="text" name="name" placeholder="create category type" required>
-            <button type="submit">Submit</button>
         </label>
+        <button type="submit">Submit</button>
     </form>
     <h1>Categories List</h1>
     <ul th:each="category: ${categoriesAttribute}">

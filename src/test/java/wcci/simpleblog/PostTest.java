@@ -19,7 +19,7 @@ public class PostTest {
 	
 	@Before
 	public void setup() {
-		author = new Author("Andrew", "A");
+		author = new Author("Andrew");
 		category = new Category("food");
 		blogTag = new BlogTag("fruits");
 		post = new Post("title", author, category, "content", blogTag);
