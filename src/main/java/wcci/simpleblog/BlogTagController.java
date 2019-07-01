@@ -14,7 +14,7 @@ public class BlogTagController {
 	}
 
 	public String getOneblogTag(Model model, long id) {
-		model.addAttribute("blogTagAttribute", blogTagRepo.findById(id));
+		model.addAttribute("blogTagAttribute", blogTagRepo.findById(id).get());
 		return "blogTagTemplate";
 		
 	}

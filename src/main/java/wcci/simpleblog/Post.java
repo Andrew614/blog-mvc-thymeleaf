@@ -63,6 +63,10 @@ public class Post {
 	public Collection<BlogTag> getBlogTag() {
 		return blogTags;
 	}
+	
+	public void addBlogTag(BlogTag blogTag) {
+		this.blogTags.add(blogTag);
+	}
 
 	@Override
 	public int hashCode() {
