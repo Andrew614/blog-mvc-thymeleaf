@@ -53,18 +53,18 @@ public class BlogTagControllerTest {
 	}
 
 	@Test
+	public void shouldBeAbleToGetOneTag() {
+		String tag = underTest.getOneblogTag(model, 1L);
+		assertThat(tag, is("blogTagTemplate"));
+	}
+
+	@Test
 	public void shouldHaveTagInModel() {
 		Optional<BlogTag> blogTag = Optional.of(blogTag1);
 		when(blogTagRepo.findById(blogTag1.getId())).thenReturn(blogTag);
 		underTest.getOneblogTag(model, 0L);
-		verify(model).addAttribute("blogTagAttribute", blogTag);
+		verify(model).addAttribute("blogTagAttribute", blogTag.get());
 
 	}
 
-	@Test
-	public void shouldBeAbleToGetOneTag() {
-		String tag = underTest.getOneblogTag(model, 0L);
-		assertThat(tag, is("blogTagTemplate"));
-
-	}
 }
