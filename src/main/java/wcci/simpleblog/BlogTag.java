@@ -19,7 +19,7 @@ public class BlogTag {
 	@GeneratedValue
 	private Long id;
 
-	protected BlogTag() {
+	public BlogTag() {
 	}
 
 	public BlogTag(String name) {

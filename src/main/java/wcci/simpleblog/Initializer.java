@@ -46,7 +46,7 @@ public class Initializer implements CommandLineRunner {
 		
 		Post post1 = new Post("title1", author1, category1, "content1", blogTag1);
 		Post post2 = new Post("title2", author1, category2, "content2", blogTag1);
-		Post post3 = new Post("title3", author3, category2, "content3", blogTag3);
+		Post post3 = new Post("title3", author3, category2, "content3", blogTag2);
 		Post post4 = new Post("title3", author4, category3, "content3", blogTag3);
 		postRepo.save(post1);
 		postRepo.save(post2);

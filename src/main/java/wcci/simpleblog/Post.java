@@ -23,7 +23,7 @@ public class Post {
 	private Category category;
 
 	@ManyToMany
-	private Collection<BlogTag> blogTags;
+	public Collection<BlogTag> blogTags;
 
 	@Id
 	@GeneratedValue
@@ -62,6 +62,10 @@ public class Post {
 
 	public Collection<BlogTag> getBlogTag() {
 		return blogTags;
+	}
+	
+	public void addBlogTag(BlogTag blogTag) {
+		this.blogTags.add(blogTag);
 	}
 
 	@Override
