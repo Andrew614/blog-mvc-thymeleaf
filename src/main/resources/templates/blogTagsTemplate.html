@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BlogTags View</title>
+</head>
+
+<body>
+    <form action="/tags/add" method="POST">
+        <label>Tag name:
+            <input type="text" name="name" placeholder="tag to add" required>
+        </label>
+        <button type="submit">Submit</button>
+    </form>
+    <h1>Tags List</h1>
+    <ul th:each="tag: ${blogTagsAttribute}">
+        <li><a th:text="${tag.name}" th:href="|/tags/${tag.id}|">tags section</a>
+        </li>
+    </ul>
+</body>
+
+</html>

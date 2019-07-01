@@ -9,13 +9,17 @@
 </head>
 
 <body>
+
     <section>
         <h1 th:text="${postAttribute.title}">Post</h1>
         <h3 th:text="${postAttribute.author.name}">Author</h3>
         <p th:text="${postAttribute.category.name}">Category</p>
         <p th:text="${postAttribute.content}">Content</p>
-        <p th:each="blogTag: ${postAttribute}">
-            <span th:text="${blogTag} + ' '">Tags</span>
+        <!-- <p th:each="blogTag: ${postAttribute}">
+            <span th:text="'#' + ${blogTag} + ' '">Tags</span>
+        </p> -->
+        <p th:each="blogTag: ${postAttribute.blogTags}">
+            <span th:text="'#' + ${blogTag.name} + ' '">Tags</span>
         </p>
     </section>
 

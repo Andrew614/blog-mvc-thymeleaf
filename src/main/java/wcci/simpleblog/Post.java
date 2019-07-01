@@ -23,7 +23,7 @@ public class Post {
 	private Category category;
 
 	@ManyToMany
-	private Collection<BlogTag> blogTags;
+	public Collection<BlogTag> blogTags;
 
 	@Id
 	@GeneratedValue
