@@ -1,6 +1,5 @@
 package wcci.simpleblog;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -32,12 +31,10 @@ public class Post {
 	protected Post() {
 	}
 
-	public Post(String title, Author author, Category category, String content, BlogTag... blogTags) {
+	public Post(String title, String content) {
 		this.title = title;
-		this.author = author;
-		this.category = category;
 		this.content = content;
-		this.blogTags = new HashSet<>(Arrays.asList(blogTags));
+		this.blogTags = new HashSet<>();
 	}
 
 	public Long getId() {
@@ -66,6 +63,14 @@ public class Post {
 	
 	public void addBlogTag(BlogTag blogTag) {
 		this.blogTags.add(blogTag);
+	}
+	
+	public void addCategory(Category category) {
+		this.category = category;
+	}
+	
+	public void addAuthor(Author author) {
+		this.author = author;
 	}
 
 	@Override
