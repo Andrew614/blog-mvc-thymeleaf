@@ -30,13 +30,6 @@ public class Initializer implements CommandLineRunner {
 		authorRepo.save(author3);
 		authorRepo.save(author4);
 		
-		BlogTag blogTag1 = new BlogTag("tag1");
-		BlogTag blogTag2 = new BlogTag("tag2");
-		BlogTag blogTag3 = new BlogTag("tag3");
-		blogTagRepo.save(blogTag1);
-		blogTagRepo.save(blogTag2);
-		blogTagRepo.save(blogTag3);
-		
 		Category category1 = new Category("category1");
 		Category category2 = new Category("category2");
 		Category category3 = new Category("category3");
@@ -44,14 +37,23 @@ public class Initializer implements CommandLineRunner {
 		categoryRepo.save(category2);
 		categoryRepo.save(category3);
 		
-		Post post1 = new Post("title1", "content1");
-		Post post2 = new Post("title2", "content2");
-		Post post3 = new Post("title3", "content3");
-		Post post4 = new Post("title3", "content3");
+		BlogTag blogTag1 = new BlogTag("Marvel");
+		BlogTag blogTag2 = new BlogTag("Super Heroes");
+		BlogTag blogTag3 = new BlogTag("Heroes");
+		blogTagRepo.save(blogTag1);
+		blogTagRepo.save(blogTag2);
+		blogTagRepo.save(blogTag3);
+		
+		Post post1 = new Post("title1", author1, category1, "content1", blogTag1);
+		Post post2 = new Post("title2", author2, category2, "content2", blogTag1);
+		Post post3 = new Post("title3", author3, category3, "content3", blogTag2);
+		Post post4 = new Post("title4", author4, category1, "content3", blogTag3);
+		Post post5 = new Post("title5", author2, category2, "content3", blogTag3);
 		postRepo.save(post1);
 		postRepo.save(post2);
 		postRepo.save(post3);
 		postRepo.save(post4);
+		postRepo.save(post5);
 	}
 
 }

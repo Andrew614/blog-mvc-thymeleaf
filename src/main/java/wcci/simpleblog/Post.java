@@ -1,5 +1,7 @@
 package wcci.simpleblog;
 
+import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -14,6 +16,7 @@ public class Post {
 
 	private String title;
 	private String content;
+	private LocalDateTime publishDate;
 
 	@ManyToOne
 	private Author author;
@@ -22,7 +25,7 @@ public class Post {
 	private Category category;
 
 	@ManyToMany
-	public Collection<BlogTag> blogTags;
+	private Collection<BlogTag> blogTags;
 
 	@Id
 	@GeneratedValue
@@ -31,10 +34,12 @@ public class Post {
 	protected Post() {
 	}
 
-	public Post(String title, String content) {
+	public Post(String title, Author author, Category category, String content, BlogTag... blogTags) {
 		this.title = title;
-		this.content = content;
-		this.blogTags = new HashSet<>();
+		this.author = author;
+		this.category = category;
+		this.content =content;
+		this.blogTags = new HashSet<BlogTag>(Arrays.asList(blogTags));
 	}
 
 	public Long getId() {
@@ -57,21 +62,21 @@ public class Post {
 		return content;
 	}
 
-	public Collection<BlogTag> getBlogTag() {
+	public Collection<BlogTag> getBlogTags() {
 		return blogTags;
 	}
 	
-	public void addBlogTag(BlogTag blogTag) {
-		this.blogTags.add(blogTag);
-	}
-	
-	public void addCategory(Category category) {
-		this.category = category;
-	}
-	
-	public void addAuthor(Author author) {
-		this.author = author;
-	}
+//	public void addBlogTag(BlogTag blogTag) {
+//		this.blogTags.add(blogTag);
+//	}
+//	
+//	public void addCategory(Category category) {
+//		this.category = category;
+//	}
+//
+//	public void addAuthor(Author author) {
+//		this.author = author;
+//	}
 
 	@Override
 	public int hashCode() {

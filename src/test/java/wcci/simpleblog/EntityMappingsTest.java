@@ -42,13 +42,6 @@ public class EntityMappingsTest {
 
 	@Before
 	public void setup() {
-		post = new Post("title", "content");
-		postRepo.save(post);
-		post1 = new Post("title1", "content1");
-		postRepo.save(post1);
-		post2 = new Post("title2", "content2");
-		postRepo.save(post2);
-		
 		author = new Author("Andrew A");
 		authorRepo.save(author);
 		category = new Category("category");
@@ -58,15 +51,12 @@ public class EntityMappingsTest {
 		blogTag2 = new BlogTag("music");
 		blogTagRepo.save(blogTag2);
 		
-		post.addAuthor(author);
-		post1.addAuthor(author);
-		post2.addAuthor(author);
-		post.addCategory(category);
-		post1.addCategory(category);
-		post2.addCategory(category);
-		post.addBlogTag(blogTag);
-		post1.addBlogTag(blogTag);
-		post2.addBlogTag(blogTag2);
+		post = new Post("title", author, category, "content", blogTag);
+		postRepo.save(post);
+		post1 = new Post("title1", author, category, "content1", blogTag);
+		postRepo.save(post1);
+		post2 = new Post("title2", author, category, "content2", blogTag2);
+		postRepo.save(post2);
 
 		entityManager.flush();
 		entityManager.clear();
