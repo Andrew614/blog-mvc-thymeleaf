@@ -12,8 +12,8 @@
 
     <section>
         <h1 th:text="${postAttribute.title}">Post</h1>
-        <h3 th:text="${postAttribute.author.name}">Author</h3>
-        <p th:text="${postAttribute.category.name}">Category</p>
+        <h3 th:text="${postAttribute.author}">Author</h3>
+        <p th:text="${postAttribute.category}">Category</p>
         <p th:text="${postAttribute.content}">Content</p>
         <!-- <p th:each="blogTag: ${postAttribute}">
             <span th:text="'#' + ${blogTag} + ' '">Tags</span>

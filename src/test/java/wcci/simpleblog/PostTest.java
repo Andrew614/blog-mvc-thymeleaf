@@ -22,10 +22,7 @@ public class PostTest {
 		author = new Author("Andrew");
 		category = new Category("food");
 		blogTag = new BlogTag("fruits");
-		post = new Post("title", "content");
-		post.addAuthor(author);
-		post.addCategory(category);
-		post.addBlogTag(blogTag);
+		post = new Post("title", author, category, "content", blogTag);
 	}
 
 	@Test
@@ -42,7 +39,7 @@ public class PostTest {
 	
 	@Test
 	public void postShouldHaveABlogTag() {
-		Collection<BlogTag> expectedBlogTag = post.getBlogTag();
+		Collection<BlogTag> expectedBlogTag = post.getBlogTags();
 		assertThat(expectedBlogTag, hasItem(blogTag));
 	}
 	
@@ -50,11 +47,8 @@ public class PostTest {
 	public void postShouldHaveMultipleTags() {
 		BlogTag blogTag2 = new BlogTag("heatlh");
 		BlogTag blogTag3 = new BlogTag("fitness");
-		Post post2 = new Post("title", "content");
-		post2.addBlogTag(blogTag);
-		post2.addBlogTag(blogTag2);
-		post2.addBlogTag(blogTag3);
-		Collection<BlogTag> expectedBlogTag = post2.getBlogTag();
+		Post post2 = new Post("title", author, category, "content", blogTag, blogTag2, blogTag3);
+		Collection<BlogTag> expectedBlogTag = post2.getBlogTags();
 		assertThat(expectedBlogTag, containsInAnyOrder(blogTag, blogTag2, blogTag3));
 	}
 }

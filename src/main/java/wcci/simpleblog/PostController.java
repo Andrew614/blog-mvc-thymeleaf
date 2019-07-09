@@ -43,12 +43,15 @@ public class PostController {
 		
 		Author authorToAdd = new Author(author);
 		authorRepo.save(authorToAdd);
+		postToAdd.addAuthor(authorToAdd);
 		
 		Category categoryToAdd = new Category(category);
 		categoryRepo.save(categoryToAdd);
+		postToAdd.addCategory(categoryToAdd);
 		
 		BlogTag blogTagToAdd = new BlogTag(blogTag);
 		blogTagRepo.save(blogTagToAdd);
+		postToAdd.addBlogTag(blogTagToAdd);
 		
 //		String[] blogTags = blogTag.split(" ");
 //		for (String tagToAdd : blogTags) {
