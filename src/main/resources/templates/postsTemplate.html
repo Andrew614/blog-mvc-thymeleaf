@@ -16,25 +16,22 @@
         <label>Author's name:
             <select name="author" required>
                 <option selected></option>
-                <option th:each="post: ${postsAttribute}" th:value="${post.author.name}"><span
-                        th:text=${post.author.name}>Author</span>
-                </option>
+                <option th:each="author: ${authorsAttribute}" th:value="${author.name}" th:text=${author.name}>
+                    Author</option>
             </select>
         </label>
         <label>Category type:
             <select name="category" required>
                 <option selected></option>
-                <option value="category1">category1</option>
-                <option value="category2">category2</option>
-                <option value="category3">category3</option>
+                <option th:each="category: ${categoriesAttribute}" th:value="${category.name}"
+                    th:text="${category.name}">Category</option>
             </select>
         </label>
         <label>Tags:
             <select name="blogTag" required>
                 <option selected></option>
-                <option value="Marvel">Marvel</option>
-                <option value="Super Heroes">Super Heroes</option>
-                <option value="Heroes">Heroes</option>
+                <option th:each="blogTag: ${blogTagsAttribute}" th:value="${blogTag.name}" th:text="${blogTag.name}">
+                    BlogTag</option>
             </select>
         </label>
         <label>Content:

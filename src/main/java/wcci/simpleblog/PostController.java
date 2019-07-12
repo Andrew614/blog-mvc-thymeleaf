@@ -26,6 +26,9 @@ public class PostController {
 	@RequestMapping("")
 	public String getAllPosts(Model model) {
 		model.addAttribute("postsAttribute", postRepo.findAll());
+		model.addAttribute("authorsAttribute", authorRepo.findAll());
+		model.addAttribute("blogTagsAttribute", blogTagRepo.findAll());
+		model.addAttribute("categoriesAttribute", categoryRepo.findAll());
 		return "postsTemplate";
 
 	}
