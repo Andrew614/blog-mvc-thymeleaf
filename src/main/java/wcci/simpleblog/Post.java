@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +26,7 @@ public class Post {
 	private Category category;
 
 	@ManyToMany
-	private Collection<BlogTag> blogTags;
+	private Set<BlogTag> blogTags;
 
 	@Id
 	@GeneratedValue
@@ -38,7 +39,7 @@ public class Post {
 		this.title = title;
 		this.author = author;
 		this.category = category;
-		this.content =content;
+		this.content = content;
 		this.blogTags = new HashSet<BlogTag>(Arrays.asList(blogTags));
 	}
 

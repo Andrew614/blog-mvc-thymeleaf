@@ -1,6 +1,8 @@
 package wcci.simpleblog;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,13 +19,14 @@ public class Author {
 	private Long id;
 
 	@OneToMany(mappedBy = "author")
-	private Collection<Post> posts;
+	private Set<Post> posts;
 
 	protected Author() {
 	}
 
 	public Author(String name) {
 		this.name = name;
+		this.posts = new HashSet<Post>();
 	}
 
 	public Long getId() {
