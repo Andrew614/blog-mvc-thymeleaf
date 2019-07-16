@@ -14,16 +14,28 @@
             <input type="text" name="title" placeholder="name of post" required>
         </label>
         <label>Author's name:
-            <input type="text" name="author" placeholder="author's name" required>
+            <select name="author" required>
+                <option selected></option>
+                <option th:each="author: ${authorsAttribute}" th:value="${author.name}" th:text=${author.name}>
+                    Author</option>
+            </select>
         </label>
         <label>Category type:
-            <input type="text" name="category" placeholder="category type" required>
+            <select name="category" required>
+                <option selected></option>
+                <option th:each="category: ${categoriesAttribute}" th:value="${category.name}"
+                    th:text="${category.name}">Category</option>
+            </select>
+        </label>
+        <label>Tags:
+            <select name="blogTag" required>
+                <option selected></option>
+                <option th:each="blogTag: ${blogTagsAttribute}" th:value="${blogTag.name}" th:text="${blogTag.name}">
+                    BlogTag</option>
+            </select>
         </label>
         <label>Content:
             <textarea name="content" cols="40" rows="10" maxlength="1000" required></textarea>
-        </label>
-        <label>Tags:
-            <input type="text" name="blogTag" placeholder="separate tags by spaces">
         </label>
         <button type="submit">Submit</button>
     </form>

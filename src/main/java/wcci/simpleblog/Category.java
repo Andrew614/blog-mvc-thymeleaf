@@ -1,6 +1,8 @@
 package wcci.simpleblog;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +15,7 @@ public class Category {
 	private String name;
 
 	@OneToMany(mappedBy = "category")
-	private Collection<Post> posts;
+	private Set<Post> posts;
 
 	@Id
 	@GeneratedValue
@@ -24,6 +26,7 @@ public class Category {
 
 	public Category(String name) {
 		this.name = name;
+		this.posts = new HashSet<Post>();
 	}
 
 	public Long getId() {
