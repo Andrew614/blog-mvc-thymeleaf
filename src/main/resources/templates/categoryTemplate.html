@@ -5,19 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Category View</title>
+    <title>BlogIt</title>
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 
 <body>
-    <h1 th:text="${categoryAttribute.name}">Category</h1>
-
-    <ul th:each="post: ${categoryAttribute.posts}">
-        <li>
-            <a th:text="${post.title}" th:href="|/posts/${post.id}|">Post</a>
-        </li>
-    </ul>
-
-    <a href="/categories">Back to categories list</a>
+    <div class="wrapper">
+        <header class="main-header">
+            <h1 class="main-header__title">BlogIt</h1>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__list-item"><a href="./postsTemplate.html">Posts</a></li>
+                    <li class="nav__list-item"><a href="./authorsTemplate.html">Authors</a></li>
+                    <li class="nav__list-item"><a href="./categoriesTemplate.html">Categories</a></li>
+                    <li class="nav__list-item"><a href="./blogTagsTemplate.html">Tags</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="container">
+                <section class="category">
+                    <h1 class="category__title" th:text="${categoryAttribute.name}">Category</h1>
+                    <ul class="category__posts-list" th:each="post: ${categoryAttribute.posts}">
+                        <li class="category__posts-list-item">
+                            <a th:text="${post.title}" th:href="|/posts/${post.id}|">Post</a>
+                        </li>
+                    </ul>
+                </section>
+                <a href="/categories">Back to categories list</a>
+            </div> <!-- end of container -->
+        </main>
+        <footer class="footer">
+            <small class="footer__text">&copy; 2019 Andrew Zhang</small>
+        </footer>
+    </div> <!-- end of wrapper -->
 </body>
 
 </html>

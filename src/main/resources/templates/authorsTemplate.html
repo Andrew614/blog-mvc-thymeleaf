@@ -5,22 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Authors View</title>
+    <title>BlogIt</title>
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 
 <body>
-    <form action="/authors/add" method="POST">
-        <label>Author's name:
-            <input type="text" name="name" placeholder="author to add" required>
-        </label>
-        <button type="submit">Submit</button>
-    </form>
-    <h1>Authors List</h1>
-    <ul th:each="author: ${authorsAttribute}">
-        <li><a th:text="${author.name}" th:href="|/authors/${author.id}|">author
-                section</a>
-        </li>
-    </ul>
+    <div class="wrapper">
+        <header class="main-header">
+            <h1 class="main-header__title">BlogIt</h1>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__list-item"><a href="./postsTemplate.html">Posts</a></li>
+                    <li class="nav__list-item"><a href="./authorsTemplate.html">Authors</a></li>
+                    <li class="nav__list-item"><a href="./categoriesTemplate.html">Categories</a></li>
+                    <li class="nav__list-item"><a href="./blogTagsTemplate.html">Tags</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="container">
+                <form class="authors-form" action="/authors/add" method="POST">
+                    <label class="authors-form__label">Author's name:
+                        <input class="authors-form__input" type="text" name="name" placeholder="create an author"
+                            required>
+                    </label>
+                    <button class="authors-form__submit" type="submit">Submit</button>
+                </form>
+                <section class="authors">
+                    <h1 class="authors__title">Authors List</h1>
+                    <ul class="authors__list" th:each="author: ${authorsAttribute}">
+                        <li class="authors__list-item"><a th:text="${author.name}"
+                                th:href="|/authors/${author.id}|">author section</a>
+                        </li>
+                    </ul>
+                </section>
+            </div> <!-- end of container -->
+        </main>
+        <footer class="footer">
+            <small class="footer__text">&copy; 2019 Andrew Zhang</small>
+        </footer>
+    </div> <!-- end of wrapper -->
 </body>
 
 </html>

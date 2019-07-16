@@ -5,22 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Post View</title>
+    <title>BlogIt</title>
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 
 <body>
-
-    <section>
-        <h1 th:text="${postAttribute.title}">Post</h1>
-        <h3 th:text="${postAttribute.author.name}">Author</h3>
-        <p th:text="${postAttribute.category.name}">Category</p>
-        <p th:text="${postAttribute.content}">Content</p>
-        <p th:each="blogTag: ${postAttribute.blogTags}">
-            <span th:text="'#' + ${blogTag.name} + ' '">Tags</span>
-        </p>
-    </section>
-
-    <a href="/posts">Back to posts list</a>
+    <div class="wrapper">
+        <header class="main-header">
+            <h1 class="main-header__title">BlogIt</h1>
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__list-item"><a href="./postsTemplate.html">Posts</a></li>
+                    <li class="nav__list-item"><a href="./authorsTemplate.html">Authors</a></li>
+                    <li class="nav__list-item"><a href="./categoriesTemplate.html">Categories</a></li>
+                    <li class="nav__list-item"><a href="./blogTagsTemplate.html">Tags</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="container">
+                <section class="post">
+                    <h1 class="post__title" th:text="${postAttribute.title}">Post</h1>
+                    <h3 class="post__author" th:text="${postAttribute.author.name}">Author</h3>
+                    <p class="post__category" th:text="${postAttribute.category.name}">Category</p>
+                    <p class="post__content" th:text="${postAttribute.content}">Content</p>
+                    <p class="post__tags" th:each="blogTag: ${postAttribute.blogTags}">
+                        <span th:text="'#' + ${blogTag.name} + ' '">Tags</span>
+                    </p>
+                </section>
+                <a href="/posts">Back to posts list</a>
+            </div> <!-- end of container -->
+        </main>
+        <footer class="footer">
+            <small class="footer__text">&copy; 2019 Andrew Zhang</small>
+        </footer>
+    </div> <!-- end of wrapper -->
 </body>
 
 </html>
