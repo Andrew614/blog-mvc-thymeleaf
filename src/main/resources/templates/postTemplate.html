@@ -26,15 +26,15 @@
         <main>
             <div class="container">
                 <section class="post">
-                    <h1 class="post__title" th:text="${postAttribute.title}">Post</h1>
-                    <h3 class="post__author" th:text="${postAttribute.author.name}">Author</h3>
-                    <p class="post__category" th:text="${postAttribute.category.name}">Category</p>
-                    <p class="post__content" th:text="${postAttribute.content}">Content</p>
-                    <p class="post__tags" th:each="blogTag: ${postAttribute.blogTags}">
+                    <h1 class="post__item" th:text="${postAttribute.title}">Post</h1>
+                    <h3 class="post__item" th:text="${postAttribute.author.name}">Author</h3>
+                    <p class="post__item" th:text="${postAttribute.category.name}">Category</p>
+                    <p class="post__item" th:text="${postAttribute.content}">Content</p>
+                    <p class="post__item" th:each="blogTag: ${postAttribute.blogTags}">
                         <span th:text="'#' + ${blogTag.name} + ' '">Tags</span>
                     </p>
                 </section>
-                <a href="/posts">Back to posts list</a>
+                <a class="return" href="/posts">Back to posts list</a>
             </div> <!-- end of container -->
         </main>
         <footer class="footer">

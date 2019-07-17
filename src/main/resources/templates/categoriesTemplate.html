@@ -25,13 +25,6 @@
         </header>
         <main>
             <div class="container">
-                <form class="categories-form" action="/categories/add" method="POST">
-                    <label class="categories-form__label">Category:
-                        <input class="categories-form__input" type="text" name="name" placeholder="create a category"
-                            required>
-                    </label>
-                    <button class="categories-form__submit" type="submit">Submit</button>
-                </form>
                 <section class="categories">
                     <h1 class="categories__title">Categories List</h1>
                     <ul class="categories__list" th:each="category: ${categoriesAttribute}">
@@ -39,6 +32,16 @@
                                 th:href="|/categories/${category.id}|">category section</a>
                         </li>
                     </ul>
+                </section>
+                <section class="form-container">
+                    <form class="form" action="/categories/add" method="POST">
+                        <h2 class="form__title">Create a new category:</h2>
+                        <br>
+                        <label class="form__label">Create a category:
+                            <input class="form__input" type="text" name="name" placeholder="create a category" required>
+                        </label>
+                        <button class="form__submit" type="submit">Submit</button>
+                    </form>
                 </section>
             </div> <!-- end of container -->
         </main>

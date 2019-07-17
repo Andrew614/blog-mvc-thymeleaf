@@ -25,39 +25,6 @@
         </header>
         <main>
             <div class="container">
-                <form class="posts-form" action="/posts/add" method="POST">
-                    <label class="posts-form__label">Post title:
-                        <input class="posts-form__input" type="text" name="title" placeholder="name of post" required>
-                    </label>
-                    <label class="posts-form__label">Author's name:
-                        <select class="posts-form__select" name="author" required>
-                            <option selected></option>
-                            <option th:each="author: ${authorsAttribute}" th:value="${author.name}"
-                                th:text=${author.name}>
-                                Author</option>
-                        </select>
-                    </label>
-                    <label class="posts-form__label">Category type:
-                        <select class="posts-form__select" name="category" required>
-                            <option selected></option>
-                            <option th:each="category: ${categoriesAttribute}" th:value="${category.name}"
-                                th:text="${category.name}">Category</option>
-                        </select>
-                    </label>
-                    <label class="posts-form__label">Tags:
-                        <select class="posts-form__select" name="blogTag" required>
-                            <option selected></option>
-                            <option th:each="blogTag: ${blogTagsAttribute}" th:value="${blogTag.name}"
-                                th:text="${blogTag.name}">
-                                BlogTag</option>
-                        </select>
-                    </label>
-                    <label class="posts-form__subtitle">Content:
-                        <textarea class="posts-form__input" name="content" cols="40" rows="10" maxlength="1000"
-                            required></textarea>
-                    </label>
-                    <button class="posts-form__submit" type="submit">Submit</button>
-                </form>
                 <section class="posts">
                     <h1 class="posts__title">Posts List</h1>
                     <ul class="posts__list" th:each="post: ${postsAttribute}">
@@ -65,6 +32,43 @@
                                 section</a>
                         </li>
                     </ul>
+                </section>
+                <section class="form-container">
+                    <form class="form" action="/posts/add" method="POST">
+                        <h2 class="form__title">Create a new post:</h2>
+                        <br>
+                        <label class="form__label">Post title:
+                            <input class="form__input" type="text" name="title" placeholder="name of post" required>
+                        </label>
+                        <label class="form__label">Author's name:
+                            <select class="form__select" name="author" required>
+                                <option selected></option>
+                                <option th:each="author: ${authorsAttribute}" th:value="${author.name}"
+                                    th:text=${author.name}>
+                                    Author</option>
+                            </select>
+                        </label>
+                        <label class="form__label">Category type:
+                            <select class="form__select" name="category" required>
+                                <option selected></option>
+                                <option th:each="category: ${categoriesAttribute}" th:value="${category.name}"
+                                    th:text="${category.name}">Category</option>
+                            </select>
+                        </label>
+                        <label class="form__label">Tags:
+                            <select class="form__select" name="blogTag" required>
+                                <option selected></option>
+                                <option th:each="blogTag: ${blogTagsAttribute}" th:value="${blogTag.name}"
+                                    th:text="${blogTag.name}">
+                                    BlogTag</option>
+                            </select>
+                        </label>
+                        <label class="form__subtitle">Content:
+                            <textarea class="form__input" name="content" cols="40" rows="10" maxlength="1000"
+                                required></textarea>
+                        </label>
+                        <button class="form__submit" type="submit">Submit</button>
+                    </form>
                 </section>
             </div> <!-- end of container -->
         </main>

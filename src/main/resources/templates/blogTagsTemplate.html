@@ -25,12 +25,6 @@
         </header>
         <main>
             <div class="container">
-                <form class="tags-form" action="/tags/add" method="POST">
-                    <label class="tags-form__label">Tag name:
-                        <input class="tags-form__input" type="text" name="name" placeholder="create a tag" required>
-                    </label>
-                    <button class="tags-form__button" type="submit">Submit</button>
-                </form>
                 <section class="tags">
                     <h1 class="tags__title">Tags List</h1>
                     <ul class="tags__list" th:each="tag: ${blogTagsAttribute}">
@@ -38,6 +32,16 @@
                                 section</a>
                         </li>
                     </ul>
+                </section>
+                <section class="form-container">
+                    <form class="form" action="/tags/add" method="POST">
+                        <h2 class="form__title">Create a new tag:</h2>
+                        <br>
+                        <label class="form__label">Create a Tag:
+                            <input class="form__input" type="text" name="name" placeholder="create a tag" required>
+                        </label>
+                        <button class="form__submit" type="submit">Submit</button>
+                    </form>
                 </section>
             </div> <!-- end of container -->
         </main>

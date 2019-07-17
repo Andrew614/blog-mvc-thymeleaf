@@ -25,13 +25,6 @@
         </header>
         <main>
             <div class="container">
-                <form class="authors-form" action="/authors/add" method="POST">
-                    <label class="authors-form__label">Author's name:
-                        <input class="authors-form__input" type="text" name="name" placeholder="create an author"
-                            required>
-                    </label>
-                    <button class="authors-form__submit" type="submit">Submit</button>
-                </form>
                 <section class="authors">
                     <h1 class="authors__title">Authors List</h1>
                     <ul class="authors__list" th:each="author: ${authorsAttribute}">
@@ -39,6 +32,16 @@
                                 th:href="|/authors/${author.id}|">author section</a>
                         </li>
                     </ul>
+                </section>
+                <section class="form-container">
+                    <form class="form" action="/authors/add" method="POST">
+                        <h2 class="form__title">Create a new author:</h2>
+                        <br>
+                        <label class="form__label">Create an author:
+                            <input class="form__input" type="text" name="name" placeholder="create an author" required>
+                        </label>
+                        <button class="form__submit" type="submit">Submit</button>
+                    </form>
                 </section>
             </div> <!-- end of container -->
         </main>
