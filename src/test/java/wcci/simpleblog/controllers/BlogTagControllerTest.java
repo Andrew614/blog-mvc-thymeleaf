@@ -58,6 +58,7 @@ public class BlogTagControllerTest {
 
 	@Test
 	public void shouldBeAbleToGetOneTag() {
+		when(blogTagRepo.findById(1L)).thenReturn(Optional.of(blogTag1));
 		String tag = underTest.getOneblogTag(model, 1L);
 		assertThat(tag, is("blogTagTemplate"));
 	}
