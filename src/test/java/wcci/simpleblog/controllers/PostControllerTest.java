@@ -1,4 +1,4 @@
-package wcci.simpleblog;
+package wcci.simpleblog.controllers;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -15,6 +15,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.ui.Model;
+
+import wcci.simpleblog.controllers.PostController;
+import wcci.simpleblog.entities.Post;
+import wcci.simpleblog.repositories.PostRepository;
 
 public class PostControllerTest {
 
@@ -57,11 +61,12 @@ public class PostControllerTest {
 		Optional<Post> post = Optional.of(post1);
 		when(postRepo.findById(post1.getId())).thenReturn(post);
 		underTest.getOnePost(model, 0L);
-		verify(model).addAttribute("postAttribute", post);
+		verify(model).addAttribute("postAttribute", post.get());
 	}
 
 	@Test
 	public void shouldBeAbleToGetOnePost() {
+		when(postRepo.findById(0L)).thenReturn(Optional.of(post1));
 		String post = underTest.getOnePost(model, 0L);
 		assertThat(post, is("postTemplate"));
 	}

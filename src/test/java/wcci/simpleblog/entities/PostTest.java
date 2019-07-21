@@ -1,4 +1,4 @@
-package wcci.simpleblog;
+package wcci.simpleblog.entities;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsInAnyOrder;
@@ -9,6 +9,11 @@ import java.util.Collection;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import wcci.simpleblog.entities.Author;
+import wcci.simpleblog.entities.BlogTag;
+import wcci.simpleblog.entities.Category;
+import wcci.simpleblog.entities.Post;
 
 public class PostTest {
 	
