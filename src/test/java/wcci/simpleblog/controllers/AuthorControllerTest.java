@@ -1,4 +1,4 @@
-package wcci.simpleblog;
+package wcci.simpleblog.controllers;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -15,6 +15,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.ui.Model;
+
+import wcci.simpleblog.controllers.AuthorController;
+import wcci.simpleblog.entities.Author;
+import wcci.simpleblog.repositories.AuthorRepository;
 
 public class AuthorControllerTest {
 

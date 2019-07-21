@@ -4,6 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import wcci.simpleblog.entities.Author;
+import wcci.simpleblog.entities.BlogTag;
+import wcci.simpleblog.entities.Category;
+import wcci.simpleblog.entities.Post;
+import wcci.simpleblog.repositories.AuthorRepository;
+import wcci.simpleblog.repositories.BlogTagRepository;
+import wcci.simpleblog.repositories.CategoryRepository;
+import wcci.simpleblog.repositories.PostRepository;
+
 @Component
 public class Initializer implements CommandLineRunner {
 	

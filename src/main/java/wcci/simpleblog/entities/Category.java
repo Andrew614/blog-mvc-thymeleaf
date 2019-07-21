@@ -1,4 +1,4 @@
-package wcci.simpleblog;
+package wcci.simpleblog.entities;
 
 import java.util.Collection;
 import java.util.HashSet;
