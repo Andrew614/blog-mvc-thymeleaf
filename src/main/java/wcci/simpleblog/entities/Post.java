@@ -1,4 +1,4 @@
-package wcci.simpleblog;
+package wcci.simpleblog.entities;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;

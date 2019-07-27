@@ -1,4 +1,4 @@
-package wcci.simpleblog;
+package wcci.simpleblog.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,6 +6,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import wcci.simpleblog.entities.Author;
+import wcci.simpleblog.entities.BlogTag;
+import wcci.simpleblog.entities.Category;
+import wcci.simpleblog.entities.Post;
+import wcci.simpleblog.repositories.AuthorRepository;
+import wcci.simpleblog.repositories.BlogTagRepository;
+import wcci.simpleblog.repositories.CategoryRepository;
+import wcci.simpleblog.repositories.PostRepository;
 
 @Controller
 @RequestMapping("/posts")

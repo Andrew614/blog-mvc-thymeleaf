@@ -13,6 +13,15 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import wcci.simpleblog.entities.Author;
+import wcci.simpleblog.entities.BlogTag;
+import wcci.simpleblog.entities.Category;
+import wcci.simpleblog.entities.Post;
+import wcci.simpleblog.repositories.AuthorRepository;
+import wcci.simpleblog.repositories.BlogTagRepository;
+import wcci.simpleblog.repositories.CategoryRepository;
+import wcci.simpleblog.repositories.PostRepository;
+
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class EntityMappingsTest {
