@@ -50,12 +50,9 @@ public class PostController {
 	
 	@PostMapping("/add")
 	public String addPost(String title, String author, String category, String content, String blogTag) {
-		Author authorToAdd = new Author(author);
-		authorRepo.save(authorToAdd);
-		Category categoryToAdd = new Category(category);
-		categoryRepo.save(categoryToAdd);
-		BlogTag blogTagToAdd = new BlogTag(blogTag);
-		blogTagRepo.save(blogTagToAdd);
+		Author authorToAdd = authorRepo.findByName(author);
+		Category categoryToAdd = categoryRepo.findByName(category);
+		BlogTag blogTagToAdd = blogTagRepo.findByName(blogTag);
 		
 		Post postToAdd = new Post(title, authorToAdd, categoryToAdd, content, blogTagToAdd);
 		postRepo.save(postToAdd);
